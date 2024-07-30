@@ -1,0 +1,33 @@
+<!-- products/templates/products/product_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'home_view' %}">Home</a>
+            <a href="{% url 'product_list' %}">Products</a>
+            <a href="{% url 'order_list' %}">Orders</a>
+            <a href="{% url 'profile_view' %}">Profile</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Product List</h1>
+        <ul>
+            {% for product in products %}
+                <li>
+                    <a href="{% url 'product_detail' product.pk %}">{{ product.name }}</a> - ${{ product.price }}
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2024 Your Online Shop</p>
+    </footer>
+</body>
+</html>
