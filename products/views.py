@@ -4,7 +4,7 @@ from .forms import CommentForm
 
 def product_list(request):
     products = Product.objects.all()
-    return render(request, 'products/product_list.html',  {'products': products})
+    return render(request, 'products/product_list.html', {'products': products})
 
 
 
@@ -28,4 +28,4 @@ def product_detail(request, pk):
         'comments': comments,
         'form': form,
     }
-    return render(request, 'products/product_detail.html', context)
+    return render(request, 'products/product_detail.html',context)
